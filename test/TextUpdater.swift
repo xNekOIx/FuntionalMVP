@@ -20,15 +20,15 @@ enum TextUpdater : ViewModel {
     }
     
     struct Presenters {
-        let presentText: String -> ()
-        let presentTextUpdate: (String -> ()) -> ()
+        let text: Presenter<String>
+        let textUpdate: Presenter<String -> ()>
     }
     
     static func ViewModel(services: Services, _ presenters: Presenters) {
-        presenters.presentText("")
+        presenters.text.present("")
         
-        presenters.presentTextUpdate { newText in
-            presenters.presentText(services.reversText(newText))
+        presenters.textUpdate.present { newText in
+            presenters.text.present(services.reversText(newText))
         }
     }
 }
@@ -41,17 +41,8 @@ class TextUpdaterViewController: UIViewController {
     
     override func viewDidLoad() {
         viewModel?(TextUpdater.Presenters(
-            presentText: {[weak self] newText in
-                self?.label.text = newText
-            },
-            presentTextUpdate: {[weak self] textSink in
-                self?.textSink = textSink
-            })
+            text: self.label.textPresenter,
+            textUpdate: self.textField.textSinkPresenter)
         )
-    }
-    
-    var textSink : (String -> ())?
-    @IBAction func updateText() {
-        textSink?(textField.text ?? "")
     }
 }

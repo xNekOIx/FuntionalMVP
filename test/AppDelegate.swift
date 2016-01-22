@@ -1,12 +1,5 @@
 import UIKit
 
-func initialViewModel(service: NSURLSession) -> (() -> TextUpdater.ViewModelPresenter) -> () {
-    return { vmp in
-        let vmpresenter = vmp()
-        vmpresenter.input.present { vmpresenter.text.present($0) }
-    }
-}
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,10 +8,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! TextUpdater.ViewController
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! TextUpdaterViewController
         
         window!.rootViewController = vc
-        vc.viewModel = initialViewModel(NSURLSession.sharedSession())
+        
+        vc.viewModel = TextUpdater.ViewModel(TextUpdater.Services(
+            reversText: { text in
+                return String(text.characters.reverse())
+        }))
         
         return true
     }

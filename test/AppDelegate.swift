@@ -12,10 +12,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window!.rootViewController = vc
         
-        vc.viewModel = TextUpdater.ViewModel(TextUpdater.Services(
-            reversText: { text in
-                return String(text.characters.reverse())
-        }))
+        vc.viewModel = TextUpdater.ViewModel(TextUpdater.Services.init(
+            defineWord: APIService.requestDefinitions)
+        )
         
         return true
     }

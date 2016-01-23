@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48D5AEC21C537E2200F0FDDC /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D5AEC11C537E2200F0FDDC /* APIService.swift */; };
 		C113C6CE1C5289ED0003A74C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C113C6A71C5289E30003A74C /* RxSwift.framework */; };
 		C113C6CF1C5289ED0003A74C /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C113C6A71C5289E30003A74C /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C1B88A7D1C511F55003E245B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B88A7C1C511F55003E245B /* AppDelegate.swift */; };
@@ -183,6 +184,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		48D5AEC11C537E2200F0FDDC /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		C113C68F1C5289E30003A74C /* Rx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rx.xcodeproj; path = Carthage/Checkouts/RxSwift/Rx.xcodeproj; sourceTree = SOURCE_ROOT; };
 		C1B88A791C511F55003E245B /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1B88A7C1C511F55003E245B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +209,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48D5AEAD1C537E0900F0FDDC /* services */ = {
+			isa = PBXGroup;
+			children = (
+				48D5AEC11C537E2200F0FDDC /* APIService.swift */,
+			);
+			name = services;
+			sourceTree = "<group>";
+		};
 		C113C6901C5289E30003A74C /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +263,7 @@
 		C1B88A7B1C511F55003E245B /* test */ = {
 			isa = PBXGroup;
 			children = (
+				48D5AEAD1C537E0900F0FDDC /* services */,
 				C113C68F1C5289E30003A74C /* Rx.xcodeproj */,
 				C1B88A7C1C511F55003E245B /* AppDelegate.swift */,
 				C1B88A7E1C511F55003E245B /* TextUpdater.swift */,
@@ -489,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1B88A8F1C512013003E245B /* Presenter.swift in Sources */,
+				48D5AEC21C537E2200F0FDDC /* APIService.swift in Sources */,
 				C1B88A7F1C511F55003E245B /* TextUpdater.swift in Sources */,
 				C1B88A7D1C511F55003E245B /* AppDelegate.swift in Sources */,
 				C1B88A931C5121C8003E245B /* UIKit+Presenter.swift in Sources */,

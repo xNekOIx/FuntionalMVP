@@ -16,7 +16,7 @@ extension ViewModel {
 
 enum TextUpdater : ViewModel {
     struct Services {
-        let reversText: String -> String
+        let defineWord: (String, String? -> ()) -> ()
     }
     
     struct Presenters {
@@ -28,7 +28,9 @@ enum TextUpdater : ViewModel {
         presenters.text.present("")
         
         presenters.textUpdate.present { newText in
-            presenters.text.present(services.reversText(newText))
+            services.defineWord(newText) { definition in
+                presenters.text.present(definition ?? "unknown")
+            }
         }
     }
 }
@@ -45,4 +47,5 @@ class TextUpdaterViewController: UIViewController {
             textUpdate: self.textField.textSinkPresenter)
         )
     }
+
 }
